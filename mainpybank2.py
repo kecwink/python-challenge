@@ -24,7 +24,7 @@ with open(csvpath, newline ='')as csvfile:
                 else:
                     continue
     print("Financial Analysis")
-    print(f"Total months: "+ str(num_of_months))
+    print(f"Total months:  {num_of_months}")
 
 #open the CSV 
 with open(csvpath, newline ='')as csvfile:
@@ -98,3 +98,13 @@ print(f'Greatest Increase in Profits:  {max_profit} : (${date_and_profit[max_pro
 dec_profit = min(date_and_profit, key=lambda key: date_and_profit[key])
 #print(dec_profit)
 print(f'Greatest Decrease in Profits:  {dec_profit} : (${date_and_profit[dec_profit]})')
+
+with open('pybankresults.txt', 'w')as writer:
+    writer.write(f'''
+    Financial Analysis
+    Total months:  {num_of_months}
+    Total profits: ${total_profits}
+    The average change is: ${average_change}
+    Greatest Increase in Profits:  {max_profit} : (${date_and_profit[max_profit]})
+    Greatest Decrease in Profits:  {dec_profit} : (${date_and_profit[dec_profit]})
+    ''') 
