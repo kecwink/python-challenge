@@ -72,3 +72,16 @@ import operator
 popular_winner = max(votes_by_candidate, key=lambda key: votes_by_candidate[key])
 #print(popular_winner)
 print(f'Winner:{popular_winner}')
+
+#write results to a text file
+with open('pypollresults.txt', 'w')as writer:
+    writer.write(f'''
+    Election Results
+    Number of Voters: {num_of_voters}
+    Votes by Percentage
+    Khan: {Khan_percentage}% ({Khan})
+    Correy: {Correy_percentage}% ({Correy})
+    Li: {Li_percentage}% ({Li})
+    O_Tooley: {O_Tooley_percentage}% ({O_Tooley})
+    Winner:{popular_winner}
+    ''') 
