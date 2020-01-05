@@ -3,11 +3,11 @@ import os
 import csv
 
 #set path for filec
-csvpath = os.path.join("PyPoll", "election_data.csv")
+csvpath = os.path.join('..',"PyPoll", "election_data.csv")
 #print(os.path.abspath('..'))
 
 #open the CSV 
-with open(csvpath, newline ='')as csvfile:
+with open(csvpath, newline ='') as csvfile:
     election_data = csv.reader(csvfile, delimiter =',')
     csv_header = next(election_data)
 
