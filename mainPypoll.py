@@ -1,20 +1,15 @@
-#modules
 import os
 import csv
 
-#set path for filec
-csvpath = os.path.join('..',"PyPoll", "election_data.csv")
-#print(os.path.abspath('..'))
 
-#open the CSV 
+csvpath = os.path.join('..',"PyPoll", "election_data.csv")
+
+
 with open(csvpath, newline ='') as csvfile:
     election_data = csv.reader(csvfile, delimiter =',')
     csv_header = next(election_data)
 
-    #print the rows
-    #for row in election_data:
-        #print(row)
-
+    
     #print results header
     print("Election Results")
 
@@ -36,9 +31,7 @@ with open(csvpath, newline ='')as csvfile:
     Li = 0
     O_Tooley = 0
     for rows in election_data:
-        for item in rows:
-            #print(item)
-            #for letters in item:
+        for item in rows: 
             if item == 'Khan':
                 Khan +=1
             elif item == 'Correy':
@@ -63,14 +56,12 @@ print(f' Correy: {Correy_percentage}% ({Correy})')
 print(f' Li: {Li_percentage}% ({Li})')
 print(f' O_Tooley: {O_Tooley_percentage}% ({O_Tooley})')
 
-#calculate the winner
-#create a dictionary with total votes for each candidate
+#calculate the winner with total votes for each candidate
 votes_by_candidate = {'Khan':661583, 'Correy':209046, 'Li':146360, 'O_Tooley':31586}
 
 #find the canidate with the most popular votes
 import operator
 popular_winner = max(votes_by_candidate, key=lambda key: votes_by_candidate[key])
-#print(popular_winner)
 print(f'Winner:{popular_winner}')
 
 #write results to a text file
